@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(223, 223, 224);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
