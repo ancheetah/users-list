@@ -23,6 +23,19 @@ export default function AccordionItem({ user }) {
         return `${date} ${time} ${dateInfo[2]}`;
     };
 
+    const getUserColor = (role) => {
+        switch (role) {
+            case 'Administrator':
+                return '#2081C3';
+            case 'User':
+                return '#68AAAB';
+            case 'Viewer':
+                return '#7E7E7E';
+            default:
+                return '#000000';
+        }
+    };
+
     return (
         <div className={styles.accordionItem}>
             <div
@@ -30,7 +43,12 @@ export default function AccordionItem({ user }) {
                 onClick={() => setIsActive(!isActive)}
             >
                 <div className={styles.headerLeft}>
-                    <UserSvg width={50} height={50} alt='user icon' />
+                    <UserSvg
+                        fill={getUserColor(user.role)}
+                        width={50}
+                        height={50}
+                        alt='user icon'
+                    />
                     <div class={styles.headerText}>
                         <div
                             className={styles.userName}
