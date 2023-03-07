@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from '@/styles/AccordionItem.module.css';
 
+import UserSvg from '/public/icons/user.svg'
 export default function AccordionItem({ user }) {
     const [isActive, setIsActive] = useState(false);
 
@@ -20,26 +22,31 @@ export default function AccordionItem({ user }) {
     };
 
     return (
-        <div className='accordionItem'>
+        <div className={styles.accordionItem}>
             <div
-                className='accordionHeader'
+                className={styles.accordionHeader}
                 onClick={() => setIsActive(!isActive)}
             >
-                <div>{`${user.firstName} ${user.lastName}`}</div>
-                <div>{user.role}</div>
-                <div>{user.email}</div>
+                <div className={styles.headerLeft}>
+                  <UserSvg width={50} height={50} alt='user icon'/>
+                  <div class={styles.headerText}>
+                    <div className={styles.userName}>{`${user.firstName} ${user.lastName}`}</div>
+                    <div className={styles.userRole}>{user.role}</div>
+                    <div className={styles.userEmail}>{user.email}</div>
+                  </div>
+                </div>
                 <div>{isActive ? '-' : '+'}</div>
             </div>
             {isActive && (
-                <div className='accordionContent'>
-                    <div>Address</div>
-                    <div>{`${user.street}, ${user.city}, ${user.state} ${user.zip}`}</div>
-                    <div>Phone</div>
-                    <div>{getPhone(user.phone)}</div>
-                    <div>Created At</div>
-                    <div>{getFormattedDate(user.createdAt)}</div>
-                    <div>Last Logged In</div>
-                    <div>{getFormattedDate(user.lastLoggedIn)}</div>
+                <div className={styles.accordionContent}>
+                    <div className={styles.detailHeader}>Address</div>
+                    <div className={styles.detailItem}>{`${user.street}, ${user.city}, ${user.state} ${user.zip}`}</div>
+                    <div className={styles.detailHeader}>Phone</div>
+                    <div className={styles.detailItem}>{getPhone(user.phone)}</div>
+                    <div className={styles.detailHeader}>Created At</div>
+                    <div className={styles.detailItem}>{getFormattedDate(user.createdAt)}</div>
+                    <div className={styles.detailHeader}>Last Logged In</div>
+                    <div className={styles.detailItem}>{getFormattedDate(user.lastLoggedIn)}</div>
                 </div>
             )}
         </div>

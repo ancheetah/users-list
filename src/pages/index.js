@@ -8,8 +8,8 @@ export default function Home() {
     return (
         <>
             <header className={styles.header}>
-                <GroupSvg fill={'#2081C3'} alt='group' width={38} height={38} />
-                <h1 style={{ fontWeight: 400, paddingLeft: '0.25em' }}>
+                <GroupSvg fill={'#2081C3'} alt='group' width={24} height={24} />
+                <h1 style={{ fontWeight: 400, fontSize: '18px', paddingLeft: '0.25em' }}>
                     Users
                 </h1>
             </header>
