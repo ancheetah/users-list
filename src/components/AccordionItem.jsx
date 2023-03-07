@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function AccordionItem({ user }) {
     const [isActive, setIsActive] = useState(false);
@@ -43,4 +44,21 @@ export default function AccordionItem({ user }) {
             )}
         </div>
     );
+}
+
+AccordionItem.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    street: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    lastLoggedIn: PropTypes.string.isRequired,
+  })
 }
