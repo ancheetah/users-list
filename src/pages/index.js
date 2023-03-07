@@ -1,10 +1,10 @@
 import styles from '@/styles/Home.module.css';
-import AccordionItem from '../components/AccordionItem'
+import users from '../users.json';
+import AccordionItem from '../components/AccordionItem';
 
 import GroupSvg from '/public/icons/group.svg';
 
 export default function Home() {
-
     return (
         <>
             <header className={styles.header}>
@@ -13,7 +13,7 @@ export default function Home() {
                     Users
                 </h1>
             </header>
-            <AccordionItem />
+            {users.map(user => <AccordionItem key={user.id} user={user} />)}
         </>
     );
 }
